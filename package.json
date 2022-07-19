@@ -10,9 +10,25 @@
         "production": "mix --production"
     },
     "devDependencies": {
+        "autoprefixer": "10.4.5",
         "axios": "^0.21",
+        "bootstrap": "^4.6.1",
+        "datatables.net-bs4": "^1.12.1",
+        "jquery": "^3.6.0",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
-        "postcss": "^8.1.14"
+        "postcss": "^8.1.14",
+        "popper.js": "^1.16.1",
+        "resolve-url-loader": "^5.0.0",
+        "sass": "^1.32.11",
+        "sass-loader": "^11.0.1"
+    },
+    "browserslist": {
+        "production": [
+            "ie 11"
+        ],
+        "development": [
+            "ie 11"
+        ]
     }
 }
