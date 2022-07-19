@@ -66,6 +66,48 @@
                                         <a href="{{ url('/home') }}" class="nav-link">{{ __('Dashboard') }}</a>
                                     </li>
                                 </ul>
+                                @php
+                                    $htmlMenuNav = '';
+                                    $currentRouteName = Route::currentRouteName();
+
+                                    foreach ([
+                                        'town-halls' => [
+                                            'routes' => [
+                                                'panel.town-halls.index' => [],
+                                                'panel.town-halls.create' => []
+                                            ]
+                                        ]
+                                    ] as $module => $moduleOptions) {
+                                        if (isset($moduleOptions['routes'])) {
+                                            $htmlMenuSubnav = '';
+                                            foreach ($moduleOptions['routes'] as $route => $options) {
+                                                $htmlMenuSubnav .= '<li class="nav-item">
+                                                    <a href="' . route($route) . '" class="nav-link ' . ($currentRouteName == $route ? 'active' : '') . '">' . __('menu.' . ($options['text'] ?? $route)) . '</a>
+                                                </li>';
+                                            }
+
+                                            if (!empty($htmlMenuSubnav)) {
+                                                $isModuleOpen = in_array($currentRouteName, array_keys($moduleOptions['routes']));
+
+                                                $htmlMenuNav .= '<li class="nav-item">
+                                                    <a href="#collapse-' . $module . '" class="nav-link ' . ($isModuleOpen ? '' : 'collapsed') . '"
+                                                        data-toggle="collapse"  aria-expanded="' . ($isModuleOpen ? 'true' : 'false') . '"
+                                                        aria-controls="collapseUsers">' . __('menu.panel.' . $module . '.text') . '</a>';
+
+                                                $htmlMenuNav .= '<div id="collapse-' . $module . '" class="collapse ' . ($isModuleOpen ? 'show' : '') . '">';
+
+                                                $htmlMenuNav .= '<ul class="nav flex-column">' . $htmlMenuSubnav . '</ul></div></li>';
+                                            }
+                                        } else {
+                                            $htmlMenuNav .= '<li class="nav-item">
+                                                <a href="' . route($moduleOptions['route']) . '" class="nav-link ' . ($currentRouteName == $moduleOptions['route'] ? 'active' : '') . '">
+                                                    ' . __('menu.panel.' . $module . '.text') . '
+                                                </a>
+                                            </li>';
+                                        }
+                                    }
+                                @endphp
+                                <ul class="nav flex-column">{!! $htmlMenuNav !!}</ul>
                             </div>
                         </nav>
                     </div>
