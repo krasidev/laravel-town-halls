@@ -3,16 +3,16 @@
 namespace App\Http\Controllers\Panel;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Panel\TownHalls\StoreTownHallRequest;
-use App\Http\Requests\Panel\TownHalls\UpdateTownHallRequest;
-use App\Repository\Panel\TownHallRepository;
+use App\Http\Requests\Panel\Users\StoreUserRequest;
+use App\Http\Requests\Panel\Users\UpdateUserRequest;
+use App\Repository\Panel\UserRepository;
 use Illuminate\Http\Request;
 
-class TownHallController extends Controller
+class UserController extends Controller
 {
     private $repository;
 
-    public function __construct(TownHallRepository $repository)
+    public function __construct(UserRepository $repository)
     {
         $this->repository = $repository;
     }
@@ -24,7 +24,7 @@ class TownHallController extends Controller
      */
     public function index()
     {
-        return view('panel.town-halls.index');
+        return view('panel.users.index');
     }
 
     /**
@@ -34,21 +34,21 @@ class TownHallController extends Controller
      */
     public function create()
     {
-        return view('panel.town-halls.create');
+        return view('panel.users.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\Panel\TownHalls\StoreTownHallRequest  $request
+     * @param  \App\Http\Requests\Panel\Users\StoreUserRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreTownHallRequest $request)
+    public function store(StoreUserRequest $request)
     {
         $this->repository->create($request->all());
 
-        return redirect()->route('panel.town-halls.index')
-            ->with('success', __('messages.panel.town-halls.store_success'));
+        return redirect()->route('panel.users.index')
+            ->with('success', __('messages.panel.users.store_success'));
     }
 
     /**
@@ -59,24 +59,24 @@ class TownHallController extends Controller
      */
     public function edit($id)
     {
-        $town_hall = $this->repository->find($id);
+        $user = $this->repository->find($id);
 
-        return view('panel.town-halls.edit', compact('town_hall'));
+        return view('panel.users.edit', compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\Panel\TownHalls\UpdateTownHallRequest  $request
+     * @param  \App\Http\Requests\Panel\Users\UpdateUserRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateTownHallRequest $request, $id)
+    public function update(UpdateUserRequest $request, $id)
     {
-        $this->repository->update($request->except(['_token', '_method']), $id);
+        $this->repository->update($request->all(), $id);
 
-        return redirect()->route('panel.town-halls.index')
-            ->with('success', __('messages.panel.town-halls.update_success'));
+        return redirect()->route('panel.users.index')
+            ->with('success', __('messages.panel.users.update_success'));
     }
 
     /**

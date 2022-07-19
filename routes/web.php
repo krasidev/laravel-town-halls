@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Panel\TownHallController;
+use App\Http\Controllers\Panel\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,4 +31,8 @@ Route::group([
     //Town-halls
     Route::resource('town-halls', TownHallController::class)->except('show');
     Route::get('town-halls/data', [TownHallController::class, 'data'])->name('town-halls.data');
+
+    //Users
+    Route::resource('users', UserController::class)->except('show');
+    Route::get('users/data', [UserController::class, 'data'])->name('users.data');
 });

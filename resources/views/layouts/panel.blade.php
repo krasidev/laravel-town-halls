@@ -76,6 +76,12 @@
                                                 'panel.town-halls.index' => [],
                                                 'panel.town-halls.create' => []
                                             ]
+                                        ],
+                                        'users' => [
+                                            'routes' => [
+                                                'panel.users.index' => [],
+                                                'panel.users.create' => []
+                                            ]
                                         ]
                                     ] as $module => $moduleOptions) {
                                         if (isset($moduleOptions['routes'])) {

@@ -22,6 +22,29 @@ return [
                 'edit' => 'Update',
                 'destroy' => 'Delete'
             ]
+        ],
+        'users' => [
+            'table' => [
+                'headers' => [
+                    'id' => 'ID',
+                    'name' => 'Name',
+                    'email' => 'E-Mail Address',
+                    'created_at' => 'Created At',
+                    'updated_at' => 'Updated At',
+                    'actions' => 'Actions'
+                ]
+            ],
+            'labels' => [
+                'name' => 'Name',
+                'email' => 'E-Mail Address',
+                'password' => 'Password',
+                'password_confirmation' => 'Confirm Password'
+            ],
+            'buttons' => [
+                'create' => 'Create',
+                'edit' => 'Update',
+                'destroy' => 'Delete'
+            ]
         ]
     ]
 ];
