@@ -9,10 +9,6 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito" />
-
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
 
