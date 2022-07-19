@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Panel\TownHallController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,13 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::group([
+    'prefix' => 'panel',
+    'as' => 'panel.',
+    'middleware' => ['auth']
+], function() {
+    //Town-halls
+    Route::resource('town-halls', TownHallController::class)->except('show');
+    Route::get('town-halls/data', [TownHallController::class, 'data'])->name('town-halls.data');
+});
