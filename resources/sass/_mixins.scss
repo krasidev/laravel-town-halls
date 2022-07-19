@@ -1,0 +1,99 @@
+@mixin flex($args...) {
+    -webkit-flex: $args;
+    -ms-flex: $args;
+    flex: $args;
+}
+
+@mixin background-linear-gradient($args...) {
+    background-image: -webkit-linear-gradient($args);
+    background-image: -moz-linear-gradient($args);
+    background-image: -ms-linear-gradient($args);
+    background-image: -o-linear-gradient($args);
+    background-image: linear-gradient($args);
+}
+
+@mixin animation($args...) {
+    -webkit-animation: $args;
+    -moz-animation: $args;
+    -o-animation: $args;
+    animation: $args;
+}
+
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+    @-moz-keyframes #{$name} {
+        @content;
+    }
+    @-o-keyframes #{$name} {
+        @content;
+    }
+    @keyframes #{$name} {
+        @content;
+    }
+}
+
+@mixin appearance($args...) {
+    -webkit-appearance: $args;
+    -moz-appearance: $args;
+    appearance: $args;
+}
+
+@mixin transform($args...) {
+    -webkit-transform: $args;
+    -moz-transform: $args;
+    -ms-transform: $args;
+    -o-transform: $args;
+    transform: $args;
+}
+
+@mixin transition($args...) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    -o-transition: $args;
+    transition: $args;
+}
+
+@mixin transition-property($args...) {
+    -webkit-transition-property: $args;
+    -moz-transition-property: $args;
+    -o-transition-property: $args;
+    transition-property: $args;
+}
+
+@mixin transition-duration($args...) {
+    -webkit-transition-property: $args;
+    -moz-transition-property: $args;
+    -o-transition-property: $args;
+    transition-property: $args;
+}
+
+@mixin transition-timing-function($args...) {
+    -webkit-transition-timing-function: $args;
+    -moz-transition-timing-function: $args;
+    -o-transition-timing-function: $args;
+    transition-timing-function: $args;
+}
+
+@mixin transition-delay($args...) {
+    -webkit-transition-delay: $args;
+    -moz-transition-delay: $args;
+    -o-transition-delay: $args;
+    transition-delay: $args;
+}
+
+@mixin transform-origin($args...) {
+    -webkit-transform-origin: $args;
+    -moz-transform-origin: $args;
+    -ms-transform-origin: $args;
+    -o-transform-origin: $args;
+    transform-origin: $args;
+}
+
+@mixin user-select($arg) {
+    -webkit-user-select: $arg;
+    -moz-user-select: $arg;
+    -ms-user-select: $arg;
+    user-select: $arg;
+}

@@ -1,0 +1,106 @@
+// Custom
+.collapsing.width {
+    width: 0;
+    height: auto;
+    transition: width .35s ease;
+}
+
+input {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.has-clear input::-ms-clear,
+.has-clear input::-ms-reveal {
+    display: none;
+}
+
+[class*="button_hamburger"][aria-expanded="true"] {
+    background-color: #18903c;
+}
+
+[class*="button_hamburger"][aria-expanded="true"] span::before {
+    top: 0;
+}
+
+[class*="button_hamburger"][aria-expanded="true"] span::after {
+    bottom: 0;
+}
+
+.button_hamburger_htx[aria-expanded="true"] span::before,
+.button_hamburger_htla[aria-expanded="true"] span::before,
+.button_hamburger_htra[aria-expanded="true"] span::after {
+    transform: rotate(45deg);
+}
+
+.button_hamburger_htx[aria-expanded="true"] span::after,
+.button_hamburger_htla[aria-expanded="true"] span::after,
+.button_hamburger_htra[aria-expanded="true"] span::before {
+    transform: rotate(-45deg);
+}
+
+.button_hamburger_htx[aria-expanded="true"] span {
+    background: none;
+}
+
+.button_hamburger_htla[aria-expanded="true"] span::before,
+.button_hamburger_htla[aria-expanded="true"] span::after,
+.button_hamburger_htra[aria-expanded="true"] span::before,
+.button_hamburger_htra[aria-expanded="true"] span::after {
+    width: 50%;
+}
+
+.button_hamburger_htla[aria-expanded="true"] span {
+    transform: rotate(-180deg);
+}
+
+.button_hamburger_htra[aria-expanded="true"] span {
+    transform: rotate(180deg);
+}
+
+#app-body {
+    display: flex;
+    flex-flow: row nowrap;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#app-side-navbar {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 250px;
+    height: 100%;
+}
+
+#app-side-nav-group ul.searching li:not(.show-search) {
+    display: none;
+}
+
+#app-side-nav-group > ul > li {
+    border-bottom: 1px solid #dee2e6;
+}
+
+#app-side-nav-group li li {
+    border-top: 1px solid #dee2e6;
+}
+
+#app-side-nav-group li li a {
+    padding-left: 2rem;
+    padding-right: 0;
+}
+
+#app-side-nav-group .nav-link:hover,
+#app-side-nav-group .nav-link.active {
+    background-color: #eee;
+}
+
+@media (max-width: 767px) {
+    main.blur {
+        filter: blur(1px);
+        opacity: .5
+    }
+}
