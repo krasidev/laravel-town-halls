@@ -61,11 +61,6 @@
                             </div>
                             <hr class="dropdown-divider m-0" />
                             <div id="app-side-nav-group" class="flex-grow-1 overflow-auto on-hover">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a href="{{ url('/home') }}" class="nav-link">{{ __('Dashboard') }}</a>
-                                    </li>
-                                </ul>
                                 @php
                                     $htmlMenuNav = '';
                                     $currentRouteName = Route::currentRouteName();
