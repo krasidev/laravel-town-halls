@@ -15898,6 +15898,11 @@ h3 {
   transform: rotate(180deg);
 }
 
+form.auth {
+  max-width: 100%;
+  width: 360px;
+}
+
 .collapsing.width {
   width: 0;
   height: auto;
