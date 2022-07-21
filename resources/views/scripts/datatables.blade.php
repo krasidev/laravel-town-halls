@@ -25,7 +25,7 @@ $.extend(true, $.fn.dataTable.defaults, {
         thousands: '{{ __('datatables.thousands') }}',
         lengthMenu: '{{ __('datatables.lengthMenu') }}',
         loadingRecords: '{{ __('datatables.loadingRecords') }}',
-        processing: '<div class="processing-loader"></div>',
+        processing: '<div class="spinner-border" role="status"><span class="sr-only"></span></div>',
         search: '{{ __('datatables.search') }}',
         searchPlaceholder: '{{ __('datatables.searchPlaceholder') }}',
         zeroRecords: '{{ __('datatables.zeroRecords') }}',
