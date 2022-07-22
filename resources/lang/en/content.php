@@ -45,6 +45,17 @@ return [
                 'edit' => 'Update',
                 'destroy' => 'Delete'
             ]
+        ],
+        'profile' => [
+            'labels' => [
+                'name' => 'Name',
+                'email' => 'E-Mail Address',
+                'password' => 'Password',
+                'password_confirmation' => 'Confirm Password'
+            ],
+            'buttons' => [
+                'edit' => 'Update'
+            ]
         ]
     ]
 ];

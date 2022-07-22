@@ -9,6 +9,9 @@ return [
         'users' => [
             'store_success' => 'User added successfully!',
             'update_success' => 'User updated successfully!'
+        ],
+        'profile' => [
+            'update_success' => 'Profile updated successfully!'
         ]
     ]
 ];

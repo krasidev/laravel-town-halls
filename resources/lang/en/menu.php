@@ -13,6 +13,9 @@ return [
             'index' => 'Overview',
             'create' => 'Add a new user',
             'edit' => 'Edit user'
+        ],
+        'profile' => [
+            'edit' => 'Edit profile'
         ]
     ]
 ];

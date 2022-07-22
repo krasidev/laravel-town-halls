@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Panel\ProfileController;
 use App\Http\Controllers\Panel\TownHallController;
 use App\Http\Controllers\Panel\UserController;
 use Illuminate\Support\Facades\Route;
@@ -31,4 +32,8 @@ Route::group([
     //Users
     Route::resource('users', UserController::class)->except('show');
     Route::get('users/data', [UserController::class, 'data'])->name('users.data');
+
+    //Profile
+    Route::get('profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');
 });

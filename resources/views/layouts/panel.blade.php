@@ -1,3 +1,6 @@
+@php
+    $currentRouteName = Route::currentRouteName();
+@endphp
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -25,6 +28,12 @@
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }}</a>
                     <ul class="dropdown-menu dropdown-menu-right">
+                        <li>
+                            <a href="{{ route('panel.profile.edit') }}" class="dropdown-item @if($currentRouteName == 'panel.profile.edit') active @endif">
+                                {{ __('menu.panel.profile.edit') }}
+                            </a>
+                        </li>
+                        <hr class="dropdown-divider">
                         <li>
                             <a href="{{ route('logout') }}" class="dropdown-item"
                                 onclick="event.preventDefault();
@@ -63,7 +72,6 @@
                             <div id="app-side-nav-group" class="flex-grow-1 overflow-auto on-hover">
                                 @php
                                     $htmlMenuNav = '';
-                                    $currentRouteName = Route::currentRouteName();
 
                                     foreach ([
                                         'town-halls' => [
