@@ -13,9 +13,9 @@
 
                         <div class="row">
                             <div class="col-12 col-sm-4">
-                                <label for="name">{{ __('content.panel.users.labels.name') }}: <span class="text-danger">*</span></label>
-
                                 <div class="form-group">
+                                    <label for="name">{{ __('content.panel.users.labels.name') }}: <span class="text-danger">*</span></label>
+
                                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" />
 
                                     @error('name')
@@ -27,9 +27,9 @@
                             </div>
 
                             <div class="col-12 col-sm-4">
-                                <label for="email">{{ __('content.panel.users.labels.email') }}: <span class="text-danger">*</span></label>
-
                                 <div class="form-group">
+                                    <label for="email">{{ __('content.panel.users.labels.email') }}: <span class="text-danger">*</span></label>
+
                                     <input id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" />
 
                                     @error('email')
@@ -41,9 +41,9 @@
                             </div>
 
                             <div class="col-12 col-sm-4">
-                                <label for="password">{{ __('content.panel.users.labels.password') }}: <span class="text-danger">*</span></label>
-
                                 <div class="form-group">
+                                    <label for="password">{{ __('content.panel.users.labels.password') }}: <span class="text-danger">*</span></label>
+
                                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" />
 
                                     @error('password')
@@ -55,9 +55,9 @@
                             </div>
 
                             <div class="col-12 col-sm-4">
-                                <label for="password-confirm">{{ __('content.panel.users.labels.password_confirmation') }}: <span class="text-danger">*</span></label>
-
                                 <div class="form-group">
+                                    <label for="password-confirm">{{ __('content.panel.users.labels.password_confirmation') }}: <span class="text-danger">*</span></label>
+
                                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation" />
                                 </div>
                             </div>
