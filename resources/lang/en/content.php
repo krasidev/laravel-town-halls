@@ -2,6 +2,17 @@
 
 return [
     'panel' => [
+        'profile' => [
+            'labels' => [
+                'name' => 'Name',
+                'email' => 'E-Mail Address',
+                'password' => 'Password',
+                'password_confirmation' => 'Confirm Password'
+            ],
+            'buttons' => [
+                'edit' => 'Update'
+            ]
+        ],
         'town-halls' => [
             'table' => [
                 'headers' => [
@@ -46,15 +57,30 @@ return [
                 'destroy' => 'Delete'
             ]
         ],
-        'profile' => [
+        'roles' => [
+            'table' => [
+                'headers' => [
+                    'id' => 'ID',
+                    'name' => 'Role',
+                    'guard_name' => 'Guard Name',
+                    'readonly' => 'Readonly',
+                    'created_at' => 'Created At',
+                    'updated_at' => 'Updated At',
+                    'actions' => 'Actions'
+                ]
+            ],
             'labels' => [
-                'name' => 'Name',
-                'email' => 'E-Mail Address',
-                'password' => 'Password',
-                'password_confirmation' => 'Confirm Password'
+                'name' => 'Role',
+                'guard_name' => 'Guard Name',
+                'readonly' => 'Readonly'
+            ],
+            'legends' => [
+                'permissions' => 'Permissions'
             ],
             'buttons' => [
-                'edit' => 'Update'
+                'create' => 'Create',
+                'edit' => 'Update',
+                'destroy' => 'Delete'
             ]
         ]
     ]

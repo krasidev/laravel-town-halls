@@ -85,6 +85,12 @@
                                                 'panel.users.index' => [],
                                                 'panel.users.create' => []
                                             ]
+                                        ],
+                                        'roles' => [
+                                            'routes' => [
+                                                'panel.roles.index' => [],
+                                                'panel.roles.create' => []
+                                            ]
                                         ]
                                     ] as $module => $moduleOptions) {
                                         if (isset($moduleOptions['routes'])) {

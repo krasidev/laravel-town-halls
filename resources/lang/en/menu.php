@@ -2,6 +2,9 @@
 
 return [
     'panel' => [
+        'profile' => [
+            'edit' => 'Edit profile'
+        ],
         'town-halls' => [
             'text' => 'Town halls',
             'index' => 'Overview',
@@ -14,8 +17,11 @@ return [
             'create' => 'Add a new user',
             'edit' => 'Edit user'
         ],
-        'profile' => [
-            'edit' => 'Edit profile'
+        'roles' => [
+            'text' => 'Roles',
+            'index' => 'Overview',
+            'create' => 'Add a new role',
+            'edit' => 'Edit role'
         ]
     ]
 ];

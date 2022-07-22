@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Panel\ProfileController;
+use App\Http\Controllers\Panel\RoleController;
 use App\Http\Controllers\Panel\TownHallController;
 use App\Http\Controllers\Panel\UserController;
 use Illuminate\Support\Facades\Route;
@@ -25,6 +26,10 @@ Route::group([
     'as' => 'panel.',
     'middleware' => ['auth']
 ], function() {
+    //Profile
+    Route::get('profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');
+
     //Town-halls
     Route::resource('town-halls', TownHallController::class)->except('show');
     Route::get('town-halls/data', [TownHallController::class, 'data'])->name('town-halls.data');
@@ -33,7 +38,7 @@ Route::group([
     Route::resource('users', UserController::class)->except('show');
     Route::get('users/data', [UserController::class, 'data'])->name('users.data');
 
-    //Profile
-    Route::get('profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');
+    //Roles
+    Route::resource('roles', RoleController::class)->except('show');
+    Route::get('roles/data', [RoleController::class, 'data'])->name('roles.data');
 });
