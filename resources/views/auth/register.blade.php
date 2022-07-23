@@ -52,6 +52,28 @@
                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" autocomplete="new-password">
                     </div>
 
+                    <div class="form-group">
+                        <label for="password-confirm">{{ __('Role') }}: <span class="text-danger">*</span></label>
+
+                        @php
+                            $oldRole = old('role');
+                        @endphp
+                        <select name="role" id="role" class="form-control @error('role') is-invalid @enderror">
+                            @foreach($roles as $role)
+                            @php
+                                $selected = $role->id == $oldRole ? 'selected="selected"' : '';
+                            @endphp
+                            <option value="{{ $role->id }}" {{ $selected }}>{{ $role->name }}</option>
+                            @endforeach
+                        </select>
+
+                        @error('role')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+
                     <button type="submit" class="btn btn-outline-primary btn-block">{{ __('Register') }}</button>
                 </form>
             </div>
