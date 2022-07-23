@@ -1,0 +1,181 @@
+form.auth {
+    max-width: 100%;
+    width: 360px;
+}
+
+// Custom
+.collapsing.width {
+    width: 0;
+    height: auto;
+    transition: width .35s ease;
+}
+
+input {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.has-clear input::-ms-clear,
+.has-clear input::-ms-reveal {
+    display: none;
+}
+
+[class*="button_hamburger"][aria-expanded="false"] {
+    background-color: #6c757d;
+}
+
+[class*="button_hamburger"][aria-expanded="true"] {
+    background-color: #545b62;
+}
+
+[class*="button_hamburger"][aria-expanded="true"] span::before {
+    top: 0;
+}
+
+[class*="button_hamburger"][aria-expanded="true"] span::after {
+    bottom: 0;
+}
+
+.button_hamburger_htx[aria-expanded="true"] span::before,
+.button_hamburger_htla[aria-expanded="true"] span::before,
+.button_hamburger_htra[aria-expanded="true"] span::after {
+    transform: rotate(45deg);
+}
+
+.button_hamburger_htx[aria-expanded="true"] span::after,
+.button_hamburger_htla[aria-expanded="true"] span::after,
+.button_hamburger_htra[aria-expanded="true"] span::before {
+    transform: rotate(-45deg);
+}
+
+.button_hamburger_htx[aria-expanded="true"] span {
+    background: none;
+}
+
+.button_hamburger_htla[aria-expanded="true"] span::before,
+.button_hamburger_htla[aria-expanded="true"] span::after,
+.button_hamburger_htra[aria-expanded="true"] span::before,
+.button_hamburger_htra[aria-expanded="true"] span::after {
+    width: 50%;
+}
+
+.button_hamburger_htla[aria-expanded="true"] span {
+    transform: rotate(-180deg);
+}
+
+.button_hamburger_htra[aria-expanded="true"] span {
+    transform: rotate(180deg);
+}
+
+#app-body {
+    display: flex;
+    flex-flow: row nowrap;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#app-side-navbar {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 250px;
+    height: 100%;
+}
+
+#app-side-nav-group ul.searching li:not(.show-search) {
+    display: none;
+}
+
+#app-side-nav-group > ul > li {
+    border-bottom: 1px solid #dee2e6;
+}
+
+#app-side-nav-group li li {
+    border-top: 1px solid #dee2e6;
+}
+
+#app-side-nav-group li li a {
+    padding-left: 2rem;
+    padding-right: 0;
+}
+
+#app-side-nav-group .nav-link:hover,
+#app-side-nav-group .nav-link.active {
+    background-color: #eee;
+}
+
+@media (max-width: 767px) {
+    main.blur {
+        filter: blur(1px);
+        opacity: .5
+    }
+}
+
+div.dataTables_wrapper {
+    .dataTables_length label,
+    .dataTables_filter label {
+        margin-bottom: 0;
+    }
+
+    .dataTable th,
+    .dataTable td {
+        vertical-align: middle;
+    }
+
+    div.dataTables_processing {
+        left: 0;
+        width: 100%;
+        line-height: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0;
+        border: none;
+        background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(25%, rgba(255, 255, 255, 0.9)), color-stop(75%, rgba(255, 255, 255, 0.9)), color-stop(100%, rgba(255, 255, 255, 0)));
+        background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.9) 25%, rgba(255, 255, 255, 0.9) 75%, rgba(255, 255, 255, 0) 100%);
+        background: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.9) 25%, rgba(255, 255, 255, 0.9) 75%, rgba(255, 255, 255, 0) 100%);
+        background: -ms-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.9) 25%, rgba(255, 255, 255, 0.9) 75%, rgba(255, 255, 255, 0) 100%);
+        background: -o-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.9) 25%, rgba(255, 255, 255, 0.9) 75%, rgba(255, 255, 255, 0) 100%);
+        background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.9) 25%, rgba(255, 255, 255, 0.9) 75%, rgba(255, 255, 255, 0) 100%);
+    
+        :not(.spinner-border) {
+            display: none;
+        }
+    }
+
+    .dataTables_paginate {
+        padding-top: 0.5rem;
+
+        .pagination {
+            margin-left: -2px;
+        }
+
+        .paginate_button {
+            padding-left: 2px;
+
+            .page-link {
+                min-width: 2.25rem;
+                line-height: 1rem;
+                padding: 0.5rem;
+                text-align: center;
+                border-radius: .25rem;
+                border-color: transparent;
+            }
+        }
+    }
+}
+
+.table {
+    &.dataTable {
+        width: 100% !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        border-collapse: collapse;
+
+        &.no-footer {
+            border-bottom-color: #dee2e6;
+        }
+    }
+}
