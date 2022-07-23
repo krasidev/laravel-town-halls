@@ -29,7 +29,7 @@
                     @php
                         $currentLocale = LaravelLocalization::getCurrentLocale();
                     @endphp
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                    <a href="#" class="nav-link dropdown-toggle pl-0 pr-1" data-toggle="dropdown" role="button" aria-expanded="false">
                         {{ LaravelLocalization::getCurrentLocaleNative() }}
                         (<span class="text-uppercase">{{ $currentLocale }}</span>)
                     </a>
@@ -45,7 +45,7 @@
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }}</a>
+                    <a href="#" class="nav-link dropdown-toggle pl-1" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }}</a>
                     <ul class="dropdown-menu dropdown-menu-right">
                         <li>
                             <a href="{{ route('panel.profile.edit') }}" class="dropdown-item @if($currentRouteName == 'panel.profile.edit') active @endif">

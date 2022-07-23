@@ -21,8 +21,12 @@ input {
     display: none;
 }
 
+[class*="button_hamburger"][aria-expanded="false"] {
+    background-color: #6c757d;
+}
+
 [class*="button_hamburger"][aria-expanded="true"] {
-    background-color: #18903c;
+    background-color: #545b62;
 }
 
 [class*="button_hamburger"][aria-expanded="true"] span::before {
