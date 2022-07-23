@@ -2,33 +2,29 @@
 
 @section('content')
 <div class="container-fluid">
-    <div class="row justify-content-center">
-        <div class="col-12">
-            @if (session('success'))
-                <div class="alert alert-success" role="alert">
-                    {{ session('success') }}
-                </div>
-            @endif
+    @if (session('success'))
+        <div class="alert alert-success shadow-sm" role="alert">
+            {{ session('success') }}
+        </div>
+    @endif
 
-            <div class="card">
-                <div class="card-header">{{ __('menu.panel.users.index') }}</div>
+    <div class="card shadow-sm">
+        <div class="card-header">{{ __('menu.panel.users.index') }}</div>
 
-                <div class="card-body">
-                    <table class="table table-bordered" id="users-table">
-                        <thead>
-                            <tr>
-                                <th>{{ __('content.panel.users.table.headers.id') }}</th>
-                                <th>{{ __('content.panel.users.table.headers.name') }}</th>
-                                <th>{{ __('content.panel.users.table.headers.email') }}</th>
-                                <th>{{ __('content.panel.users.table.headers.role') }}</th>
-                                <th>{{ __('content.panel.users.table.headers.created_at') }}</th>
-                                <th>{{ __('content.panel.users.table.headers.updated_at') }}</th>
-                                <th>{{ __('content.panel.users.table.headers.actions') }}</th>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
-            </div>
+        <div class="card-body">
+            <table class="table table-bordered" id="users-table">
+                <thead>
+                    <tr>
+                        <th>{{ __('content.panel.users.table.headers.id') }}</th>
+                        <th>{{ __('content.panel.users.table.headers.name') }}</th>
+                        <th>{{ __('content.panel.users.table.headers.email') }}</th>
+                        <th>{{ __('content.panel.users.table.headers.role') }}</th>
+                        <th>{{ __('content.panel.users.table.headers.created_at') }}</th>
+                        <th>{{ __('content.panel.users.table.headers.updated_at') }}</th>
+                        <th>{{ __('content.panel.users.table.headers.actions') }}</th>
+                    </tr>
+                </thead>
+            </table>
         </div>
     </div>
 </div>

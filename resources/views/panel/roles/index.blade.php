@@ -2,33 +2,29 @@
 
 @section('content')
 <div class="container-fluid">
-    <div class="row justify-content-center">
-        <div class="col-12">
-            @if (session('success'))
-                <div class="alert alert-success" role="alert">
-                    {{ session('success') }}
-                </div>
-            @endif
+    @if (session('success'))
+        <div class="alert alert-success shadow-sm" role="alert">
+            {{ session('success') }}
+        </div>
+    @endif
 
-            <div class="card">
-                <div class="card-header">{{ __('menu.panel.roles.index') }}</div>
+    <div class="card shadow-sm">
+        <div class="card-header">{{ __('menu.panel.roles.index') }}</div>
 
-                <div class="card-body">
-                    <table class="table table-bordered" id="roles-table">
-                        <thead>
-                            <tr>
-                                <th>{{ __('content.panel.roles.table.headers.id') }}</th>
-                                <th>{{ __('content.panel.roles.table.headers.name') }}</th>
-                                <th>{{ __('content.panel.roles.table.headers.guard_name') }}</th>
-                                <th>{{ __('content.panel.roles.table.headers.readonly') }}</th>
-                                <th>{{ __('content.panel.roles.table.headers.created_at') }}</th>
-                                <th>{{ __('content.panel.roles.table.headers.updated_at') }}</th>
-                                <th>{{ __('content.panel.roles.table.headers.actions') }}</th>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
-            </div>
+        <div class="card-body">
+            <table class="table table-bordered" id="roles-table">
+                <thead>
+                    <tr>
+                        <th>{{ __('content.panel.roles.table.headers.id') }}</th>
+                        <th>{{ __('content.panel.roles.table.headers.name') }}</th>
+                        <th>{{ __('content.panel.roles.table.headers.guard_name') }}</th>
+                        <th>{{ __('content.panel.roles.table.headers.readonly') }}</th>
+                        <th>{{ __('content.panel.roles.table.headers.created_at') }}</th>
+                        <th>{{ __('content.panel.roles.table.headers.updated_at') }}</th>
+                        <th>{{ __('content.panel.roles.table.headers.actions') }}</th>
+                    </tr>
+                </thead>
+            </table>
         </div>
     </div>
 </div>

@@ -2,31 +2,27 @@
 
 @section('content')
 <div class="container-fluid">
-    <div class="row justify-content-center">
-        <div class="col-12">
-            @if (session('success'))
-                <div class="alert alert-success" role="alert">
-                    {{ session('success') }}
-                </div>
-            @endif
+    @if (session('success'))
+        <div class="alert alert-success shadow-sm" role="alert">
+            {{ session('success') }}
+        </div>
+    @endif
 
-            <div class="card">
-                <div class="card-header">{{ __('menu.panel.town-halls.index') }}</div>
+    <div class="card shadow-sm">
+        <div class="card-header">{{ __('menu.panel.town-halls.index') }}</div>
 
-                <div class="card-body">
-                    <table class="table table-bordered" id="town-halls-table">
-                        <thead>
-                            <tr>
-                                <th>{{ __('content.panel.town-halls.table.headers.id') }}</th>
-                                <th>{{ __('content.panel.town-halls.table.headers.abbreviation') }}</th>
-                                <th>{{ __('content.panel.town-halls.table.headers.ekatte_num') }}</th>
-                                <th>{{ __('content.panel.town-halls.table.headers.name') }}</th>
-                                <th>{{ __('content.panel.town-halls.table.headers.actions') }}</th>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
-            </div>
+        <div class="card-body">
+            <table class="table table-bordered" id="town-halls-table">
+                <thead>
+                    <tr>
+                        <th>{{ __('content.panel.town-halls.table.headers.id') }}</th>
+                        <th>{{ __('content.panel.town-halls.table.headers.abbreviation') }}</th>
+                        <th>{{ __('content.panel.town-halls.table.headers.ekatte_num') }}</th>
+                        <th>{{ __('content.panel.town-halls.table.headers.name') }}</th>
+                        <th>{{ __('content.panel.town-halls.table.headers.actions') }}</th>
+                    </tr>
+                </thead>
+            </table>
         </div>
     </div>
 </div>
