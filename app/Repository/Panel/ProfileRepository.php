@@ -25,6 +25,8 @@ class ProfileRepository extends Repository
 
         $profile->update($data);
 
+        $profile->syncRoles([$data['role']]);
+
         return $profile;
     }
 }

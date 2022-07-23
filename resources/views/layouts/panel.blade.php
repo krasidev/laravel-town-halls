@@ -77,22 +77,42 @@
                                         'town-halls' => [
                                             'routes' => [
                                                 'panel.town-halls.index' => [],
-                                                'panel.town-halls.create' => []
+                                                'panel.town-halls.create' => [
+                                                    'permission' => 'panel.town-halls.create'
+                                                ]
                                             ]
                                         ],
                                         'users' => [
                                             'routes' => [
-                                                'panel.users.index' => [],
-                                                'panel.users.create' => []
+                                                'panel.users.index' => [
+                                                    'permission' => 'panel.users.index'
+                                                ],
+                                                'panel.users.create' => [
+                                                    'permission' => 'panel.users.create'
+                                                ]
+                                            ]
+                                        ],
+                                        'roles' => [
+                                            'routes' => [
+                                                'panel.roles.index' => [
+                                                    'permission' => 'panel.roles.index'
+                                                ],
+                                                'panel.roles.create' => [
+                                                    'permission' => 'panel.roles.create'
+                                                ]
                                             ]
                                         ]
                                     ] as $module => $moduleOptions) {
                                         if (isset($moduleOptions['routes'])) {
                                             $htmlMenuSubnav = '';
                                             foreach ($moduleOptions['routes'] as $route => $options) {
-                                                $htmlMenuSubnav .= '<li class="nav-item">
-                                                    <a href="' . route($route) . '" class="nav-link ' . ($currentRouteName == $route ? 'active' : '') . '">' . __('menu.' . ($options['text'] ?? $route)) . '</a>
-                                                </li>';
+                                                if (!isset($options['permission']) || (
+                                                    auth()->user()->hasRole('admin') || auth()->user()->hasPermissionTo($options['permission'])
+                                                )) {
+                                                    $htmlMenuSubnav .= '<li class="nav-item">
+                                                        <a href="' . route($route) . '" class="nav-link ' . ($currentRouteName == $route ? 'active' : '') . '">' . __('menu.' . ($options['text'] ?? $route)) . '</a>
+                                                    </li>';
+                                                }
                                             }
 
                                             if (!empty($htmlMenuSubnav)) {
@@ -107,7 +127,9 @@
 
                                                 $htmlMenuNav .= '<ul class="nav flex-column">' . $htmlMenuSubnav . '</ul></div></li>';
                                             }
-                                        } else {
+                                        } else if (!isset($moduleOptions['permission']) || (
+                                            auth()->user()->hasRole('admin') || auth()->user()->hasPermissionTo($moduleOptions['permission'])
+                                        )) {
                                             $htmlMenuNav .= '<li class="nav-item">
                                                 <a href="' . route($moduleOptions['route']) . '" class="nav-link ' . ($currentRouteName == $moduleOptions['route'] ? 'active' : '') . '">
                                                     ' . __('menu.panel.' . $module . '.text') . '

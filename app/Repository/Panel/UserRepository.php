@@ -15,10 +15,16 @@ class UserRepository extends Repository
 
     public function data($data)
     {
-		$users = $this->getModel()
-            ->select('users.*');
+		$users = $this->getModel()->with('roles')
+			->select('users.*');
 
         $datatable = datatables()->eloquent($users);
+
+		$datatable->addColumn('roles', function ($user) {
+			return $user->roles->map(function($role) {
+				return $role->name;
+			})->implode(', ');
+		});
 
         $datatable->addColumn('actions', function($user) {
 			return view('panel.users.table.table-actions', compact('user'));
@@ -32,6 +38,8 @@ class UserRepository extends Repository
         $data['password'] = Hash::make($data['password']);
 
         $user = $this->getModel()->create($data);
+
+        $user->assignRole($data['role']);
 
         return $user;
     }
@@ -47,6 +55,8 @@ class UserRepository extends Repository
         $user = $this->getModel()->findOrFail($id);
 
         $user->update($data);
+
+        $user->syncRoles([$data['role']]);
 
         return $user;
     }

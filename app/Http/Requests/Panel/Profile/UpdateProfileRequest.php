@@ -26,7 +26,8 @@ class UpdateProfileRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,' . auth()->user()->id . ',id'],
-            'password' => ['nullable', 'string', 'min:8', 'confirmed']
+            'password' => ['nullable', 'string', 'min:8', 'confirmed'],
+            'role' => ['required']
         ];
     }
 
@@ -40,7 +41,8 @@ class UpdateProfileRequest extends FormRequest
         return [
             'name' => __('content.panel.profile.labels.name'),
             'email' => __('content.panel.profile.labels.email'),
-            'password' => __('content.panel.profile.labels.password')
+            'password' => __('content.panel.profile.labels.password'),
+            'role' => __('content.panel.profile.labels.role')
         ];
     }
 }

@@ -26,7 +26,8 @@ class UpdateUserRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,' . $this->route('user') . ',id'],
-            'password' => ['nullable', 'string', 'min:8', 'confirmed']
+            'password' => ['nullable', 'string', 'min:8', 'confirmed'],
+            'role' => ['required']
         ];
     }
 
@@ -40,7 +41,8 @@ class UpdateUserRequest extends FormRequest
         return [
             'name' => __('content.panel.users.labels.name'),
             'email' => __('content.panel.users.labels.email'),
-            'password' => __('content.panel.users.labels.password')
+            'password' => __('content.panel.users.labels.password'),
+            'role' => __('content.panel.users.labels.role')
         ];
     }
 }

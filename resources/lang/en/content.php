@@ -2,6 +2,18 @@
 
 return [
     'panel' => [
+        'profile' => [
+            'labels' => [
+                'name' => 'Name',
+                'email' => 'E-Mail Address',
+                'password' => 'Password',
+                'password_confirmation' => 'Confirm Password',
+                'role' => 'Role'
+            ],
+            'buttons' => [
+                'edit' => 'Update'
+            ]
+        ],
         'town-halls' => [
             'table' => [
                 'headers' => [
@@ -29,6 +41,7 @@ return [
                     'id' => 'ID',
                     'name' => 'Name',
                     'email' => 'E-Mail Address',
+                    'role' => 'Role',
                     'created_at' => 'Created At',
                     'updated_at' => 'Updated At',
                     'actions' => 'Actions'
@@ -38,7 +51,8 @@ return [
                 'name' => 'Name',
                 'email' => 'E-Mail Address',
                 'password' => 'Password',
-                'password_confirmation' => 'Confirm Password'
+                'password_confirmation' => 'Confirm Password',
+                'role' => 'Role'
             ],
             'buttons' => [
                 'create' => 'Create',
@@ -46,15 +60,30 @@ return [
                 'destroy' => 'Delete'
             ]
         ],
-        'profile' => [
+        'roles' => [
+            'table' => [
+                'headers' => [
+                    'id' => 'ID',
+                    'name' => 'Role',
+                    'guard_name' => 'Guard Name',
+                    'readonly' => 'Readonly',
+                    'created_at' => 'Created At',
+                    'updated_at' => 'Updated At',
+                    'actions' => 'Actions'
+                ]
+            ],
             'labels' => [
-                'name' => 'Name',
-                'email' => 'E-Mail Address',
-                'password' => 'Password',
-                'password_confirmation' => 'Confirm Password'
+                'name' => 'Role',
+                'guard_name' => 'Guard Name',
+                'readonly' => 'Readonly'
+            ],
+            'legends' => [
+                'permissions' => 'Permissions'
             ],
             'buttons' => [
-                'edit' => 'Update'
+                'create' => 'Create',
+                'edit' => 'Update',
+                'destroy' => 'Delete'
             ]
         ]
     ]
