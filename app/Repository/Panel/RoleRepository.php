@@ -19,6 +19,10 @@ class RoleRepository extends Repository
 
         $datatable = datatables()->eloquent($roles);
 
+        $datatable->editColumn('readonly', function($role) {
+            return view('panel.roles.table.table-readonly', compact('role'));
+		});
+
         $datatable->addColumn('actions', function($role) {
 			return view('panel.roles.table.table-actions', compact('role'));
 		});
