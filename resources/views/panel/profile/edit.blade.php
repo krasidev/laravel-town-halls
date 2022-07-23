@@ -68,6 +68,30 @@
                                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation" />
                                 </div>
                             </div>
+
+                            <div class="col-12 col-sm-4">
+                                <div class="form-group">
+                                    <label for="role">{{ __('content.panel.profile.labels.role') }}: <span class="text-danger">*</span></label>
+
+                                    @php
+                                        $oldRole = old('role', auth()->user()->roles->pluck('id')->first());
+                                    @endphp
+                                    <select name="role" id="role" class="form-control @error('role') is-invalid @enderror">
+                                        @foreach($roles as $role)
+                                        @php
+                                            $selected = $role->id == $oldRole ? 'selected="selected"' : '';
+                                        @endphp
+                                        <option value="{{ $role->id }}" {{ $selected }}>{{ $role->name }}</option>
+                                        @endforeach
+                                    </select>
+
+                                    @error('role')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
                         </div>
 
                         <hr class="dropdown-divider mt-0 mb-3">
