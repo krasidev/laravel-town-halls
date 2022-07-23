@@ -26,6 +26,25 @@
             <!-- Right Side Of Navbar -->
             <ul class="nav ml-auto">
                 <li class="nav-item dropdown">
+                    @php
+                        $currentLocale = LaravelLocalization::getCurrentLocale();
+                    @endphp
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        {{ LaravelLocalization::getCurrentLocaleNative() }}
+                        (<span class="text-uppercase">{{ $currentLocale }}</span>)
+                    </a>
+                    <ul class="dropdown-menu">
+                        @foreach(LaravelLocalization::getLocalesOrder() as $localeCode => $properties)
+                        <li>
+                            <a href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}" class="dropdown-item @if($currentLocale == $localeCode) disabled @endif">
+                                {{ $properties['native'] }}
+                                (<span class="text-uppercase">{{ $localeCode }}</span>)
+                            </a>
+                        </li>
+                        @endforeach
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }}</a>
                     <ul class="dropdown-menu dropdown-menu-right">
                         <li>
@@ -61,7 +80,7 @@
                     <div id="navbarNav" class="bg-white shadow-sm navbar-collapse width collapse flex-fill">
                         <nav id="app-side-navbar">
                             <div class="input-group has-clear p-3">
-                                <input type="text" id="app-side-nav-search" class="form-control" placeholder="Search menu">
+                                <input type="text" id="app-side-nav-search" class="form-control" placeholder="{{ __('menu.panel.searchbar') }}">
                                 <div class="input-group-append">
                                     <button type="button" class="btn btn-secondary btn-clear btn-clear-hidden">
                                         <i class="fa fa-times"></i>

@@ -2,6 +2,7 @@
 
 return [
     'panel' => [
+        'searchbar' => 'Search menu',
         'profile' => [
             'edit' => 'Edit profile'
         ],
