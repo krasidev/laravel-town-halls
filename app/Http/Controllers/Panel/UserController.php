@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Panel;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Panel\Users\StoreUserRequest;
 use App\Http\Requests\Panel\Users\UpdateUserRequest;
+use App\Models\Role;
 use App\Repository\Panel\UserRepository;
 use Illuminate\Http\Request;
 
@@ -34,7 +35,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('panel.users.create');
+        $roles = Role::all();
+
+        return view('panel.users.create', compact('roles'));
     }
 
     /**
@@ -60,8 +63,9 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = $this->repository->find($id);
+        $roles = Role::all();
 
-        return view('panel.users.edit', compact('user'));
+        return view('panel.users.edit', compact('user', 'roles'));
     }
 
     /**

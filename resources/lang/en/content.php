@@ -40,6 +40,7 @@ return [
                     'id' => 'ID',
                     'name' => 'Name',
                     'email' => 'E-Mail Address',
+                    'role' => 'Role',
                     'created_at' => 'Created At',
                     'updated_at' => 'Updated At',
                     'actions' => 'Actions'
@@ -49,7 +50,8 @@ return [
                 'name' => 'Name',
                 'email' => 'E-Mail Address',
                 'password' => 'Password',
-                'password_confirmation' => 'Confirm Password'
+                'password_confirmation' => 'Confirm Password',
+                'role' => 'Role'
             ],
             'buttons' => [
                 'create' => 'Create',
