@@ -100,4 +100,15 @@ class TownHallController extends Controller
     {
         return $this->repository->data($request->all());
     }
+
+    /**
+     * Export data from storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function export(Request $request)
+    {
+        return $this->repository->export($request->all());
+    }
 }

@@ -39,6 +39,7 @@ Route::group([
         Route::resource('town-halls', TownHallController::class)->only(['create', 'store'])->middleware('role_or_permission:admin|panel.town-halls.create');
         Route::resource('town-halls', TownHallController::class)->only(['edit', 'update'])->middleware('role_or_permission:admin|panel.town-halls.edit');
         Route::resource('town-halls', TownHallController::class)->only('destroy')->middleware('role_or_permission:admin|panel.town-halls.destroy');
+        Route::get('town-halls/export', [TownHallController::class, 'export'])->name('town-halls.export');
         Route::get('town-halls/data', [TownHallController::class, 'data'])->name('town-halls.data');
 
         //Users

@@ -2,8 +2,10 @@
 
 namespace App\Repository\Panel;
 
+use App\Exports\Panel\TownHalls\TownHallExport;
 use App\Models\TownHall;
 use LazyElePHPant\Repository\Repository;
+use Maatwebsite\Excel\Facades\Excel;
 
 class TownHallRepository extends Repository
 {
@@ -24,5 +26,10 @@ class TownHallRepository extends Repository
 		});
 
         return $datatable->make(true);
+    }
+
+    public function export($data)
+    {
+        return Excel::download(new TownHallExport(), 'town-halls-' . time() . '.xlsx');
     }
 }

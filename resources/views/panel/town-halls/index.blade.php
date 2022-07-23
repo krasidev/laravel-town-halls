@@ -9,7 +9,13 @@
     @endif
 
     <div class="card shadow-sm">
-        <div class="card-header">{{ __('menu.panel.town-halls.index') }}</div>
+        <div class="card-header d-flex justify-content-between">
+            {{ __('menu.panel.town-halls.index') }}
+
+            <a href="{{ route('panel.town-halls.export') }}">
+                <i class="fas fa-download"></i>
+            </a>
+        </div>
 
         <div class="card-body">
             <table class="table table-bordered" id="town-halls-table">
