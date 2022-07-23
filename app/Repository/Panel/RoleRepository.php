@@ -28,7 +28,9 @@ class RoleRepository extends Repository
 
     public function create($data)
     {
-        $role = $this->getModel()->create($data);
+        $role = $this->getModel()->create([
+            'name' => $data['name']
+        ]);
 
         $role->syncPermissions($data['permissions'] ?? []);
 
@@ -39,9 +41,13 @@ class RoleRepository extends Repository
     {
         $role = $this->getModel()->findOrFail($id);
 
-        $role->update($data);
+        if ($role->readonly == 0) {
+            $role->update([
+                'name' => $data['name']
+            ]);
 
-        $role->syncPermissions($data['permissions'] ?? []);
+            $role->syncPermissions($data['permissions'] ?? []);
+        }
 
         return $role;
     }
