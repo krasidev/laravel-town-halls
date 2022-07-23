@@ -3,19 +3,19 @@
 return [
     'panel' => [
         'town-halls' => [
-            'index' => 'Town halls',
+            'index' => 'List Town halls',
             'create' => 'Add a new town hall',
             'edit' => 'Edit town hall',
             'destroy' => 'Destroy town hall'
         ],
         'users' => [
-            'index' => 'Users',
+            'index' => 'List Users',
             'create' => 'Add a new user',
             'edit' => 'Edit user',
             'destroy' => 'Destroy user'
         ],
         'roles' => [
-            'index' => 'Roles',
+            'index' => 'List Roles',
             'create' => 'Add a new role',
             'edit' => 'Edit role',
             'destroy' => 'Destroy role'

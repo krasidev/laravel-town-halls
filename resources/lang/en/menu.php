@@ -7,19 +7,19 @@ return [
         ],
         'town-halls' => [
             'text' => 'Town halls',
-            'index' => 'Overview',
+            'index' => 'List Town halls',
             'create' => 'Add a new town hall',
             'edit' => 'Edit town hall'
         ],
         'users' => [
             'text' => 'Users',
-            'index' => 'Overview',
+            'index' => 'List Users',
             'create' => 'Add a new user',
             'edit' => 'Edit user'
         ],
         'roles' => [
             'text' => 'Roles',
-            'index' => 'Overview',
+            'index' => 'List Roles',
             'create' => 'Add a new role',
             'edit' => 'Edit role'
         ]
