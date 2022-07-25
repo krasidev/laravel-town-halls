@@ -99,6 +99,9 @@
                                                 'panel.town-halls.create' => [
                                                     'permission' => 'panel.town-halls.create'
                                                 ]
+                                            ],
+                                            'extended_routes' => [
+                                                'panel.town-halls.edit'
                                             ]
                                         ],
                                         'users' => [
@@ -109,6 +112,9 @@
                                                 'panel.users.create' => [
                                                     'permission' => 'panel.users.create'
                                                 ]
+                                            ],
+                                            'extended_routes' => [
+                                                'panel.users.edit'
                                             ]
                                         ],
                                         'roles' => [
@@ -119,6 +125,9 @@
                                                 'panel.roles.create' => [
                                                     'permission' => 'panel.roles.create'
                                                 ]
+                                            ],
+                                            'extended_routes' => [
+                                                'panel.roles.edit'
                                             ]
                                         ]
                                     ] as $module => $moduleOptions) {
@@ -135,7 +144,10 @@
                                             }
 
                                             if (!empty($htmlMenuSubnav)) {
-                                                $isModuleOpen = in_array($currentRouteName, array_keys($moduleOptions['routes']));
+                                                $isModuleOpen = in_array($currentRouteName, array_merge(
+                                                    array_keys($moduleOptions['routes']),
+                                                    $moduleOptions['extended_routes'] ?? []
+                                                ));
 
                                                 $htmlMenuNav .= '<li class="nav-item">
                                                     <a href="#collapse-' . $module . '" class="nav-link ' . ($isModuleOpen ? '' : 'collapsed') . '"
