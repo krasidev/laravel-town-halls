@@ -37,7 +37,7 @@
 @section('scripts')
 <script>
 $(function() {
-    var table = $('#town-halls-table').DataTable({
+    $('#town-halls-table').DataTable({
         ajax: '{!! route('panel.town-halls.data') !!}',
         columns: [
             { data: 'id', name: 'id', searchable: false },
@@ -46,28 +46,6 @@ $(function() {
             { data: 'name', name: 'name' },
             { data: 'actions', name: 'actions', searchable: false, orderable: false }
         ]
-    });
-
-    table.on('click', '.dt-bt-delete', function(e) {
-        var href = $(this).attr('href');
-        var data = table.row($(this).parents('tr')).data();
-
-        if (data == undefined) {
-            data = table.row(this).data();
-        }
-
-        $.ajax({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            url: href,
-            type: 'DELETE',
-            success: function(data) {
-                table.row($(this).parents('tr')).remove().draw();
-            }
-        });
-
-        e.preventDefault();
     });
 
     setTimeout(function() {

@@ -33,7 +33,7 @@
 @section('scripts')
 <script>
 $(function() {
-    var table = $('#roles-table').DataTable({
+    $('#roles-table').DataTable({
         ajax: '{!! route('panel.roles.data') !!}',
         columns: [
             { data: 'id', name: 'id', searchable: false },
@@ -44,28 +44,6 @@ $(function() {
             { data: 'updated_at', name: 'updated_at' },
             { data: 'actions', name: 'actions', searchable: false, orderable: false }
         ]
-    });
-
-    table.on('click', '.dt-bt-delete', function(e) {
-        var href = $(this).attr('href');
-        var data = table.row($(this).parents('tr')).data();
-
-        if (data == undefined) {
-            data = table.row(this).data();
-        }
-
-        $.ajax({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            url: href,
-            type: 'DELETE',
-            success: function(data) {
-                table.row($(this).parents('tr')).remove().draw();
-            }
-        });
-
-        e.preventDefault();
     });
 
     setTimeout(function() {

@@ -48,4 +48,21 @@ $.extend(true, $.fn.dataTable.defaults, {
         }
     }
 });
+
+$(document).on('click', '.dt-bt-delete', function(e) {
+    var element = $(this);
+
+    $.ajax({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        url: element.attr('href'),
+        type: 'DELETE',
+        success: function(data) {
+            element.closest('table').DataTable().row(this).remove().draw();
+        }
+    });
+
+    e.preventDefault();
+});
 </script>
